@@ -1,4 +1,4 @@
-"# packman_robots" 
+# packman_robots 
 Pour comprendre ce que fait ce programme, essayez de penser comment un agent dans le jeu "packman" se déplace.
 
 Le programme principal ‘get_final_position.py’ prend deux fichiers en paramètre, le premier fichier est le fichier de ‘universe.txt’ qui contient la longueur et la largeur du monde dont lequel le robot va jouer, le deuxième fichier en paramètre est le ‘instrucion_list.txt’ qui  contient l’ensemble d’instructions qui vont faire déplacer le robot.
