@@ -3,10 +3,10 @@ from c_ways_robot.robots import MrRobot
 
 
 def main(universeDimensionsFile, instructionsFile):
-    """Cette fonction prend en paramètre deux fichiers, universeDimensionsFile qui contient les dimensions de du monde
-    (espace) dans le robot va se déplacer, instructionsFile cotient l'ensemble d'instructions qui vont faire bouger
-    le robot, afficher à l’écran la position final du robot (numColonne, numLigne)"""
-    try: #si le nom du fichier spécifier dans le paramètre universeDimensionsFile n'existe pas
+    """Cette fonction prend en paramètre deux fichiers, universeDimensionsFile qui contient les dimensions du monde
+    (espace) dont le robot va se déplacer. instructionsFile cotient l'ensemble d'instructions qui vont faire bouger
+    le robot et affiche à l’écran la position final du robot (numColonne, numLigne)"""
+    try: #si le nom du fichier spécifié dans le paramètre universeDimensionsFile n'existe pas
 
         with open(universeDimensionsFile, "r")as file:#ouvrir le fichier qui contient les tailles width et length
             _, width = file.readline().split(": ")#récupérer le width
@@ -15,17 +15,17 @@ def main(universeDimensionsFile, instructionsFile):
             length = int(length)
 
         world = Espace(width,length) # création d'un objet monde avec le wifth et le length qu'on a récupéré
-        robot = MrRobot(name="B-VZXR", world=world)# création d'un objet robot dans le monde qu'on viens de crée
+        robot = MrRobot(name="B-VZXR", world=world)# création d'un objet robot dans le monde qu'on vient de créer
 
-        try: #si le nom du fichier spécifier dans le paramètre instructionsFile n'existe pas
+        try: #si le nom du fichier spécifié dans le paramètre instructionsFile n'existe pas
 
             with open(instructionsFile, "r") as file:# ouvrir le fichier qui contient les instructions
                 instruction = file.readline()# lire la première instruction
-                while instruction: # tan que on lit les lignes
+                while instruction: # tant qu'on lit les lignes
                     robot.move(instruction) # on bouge le robot selon l'instruction  qu'on a récupéré
                     instruction = file.readline()# on avance vers l'instruction à venir
 
-            print(robot.getCurrentPosition()) # on renvois la position final du robot (numColonne, numLigne)
+            print(robot.getCurrentPosition()) # on affiche la position finale du robot (numColonne, numLigne)
 
         except FileNotFoundError:
             print("File "+instructionsFile+" was not found")

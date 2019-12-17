@@ -1,6 +1,6 @@
 class Espace(object):
-    """Cette classe permet de crée l'espace dans lequel le robot va vivre son monde, width pour spécifier la largeur
-   de matrice, le length pour spécifier la longueur de la matrice"""
+    """Cette classe permet de créer l'espace dans lequel le robot va vivre son monde, width pour spécifier la largeur
+   de la matrice, le length pour spécifier la longueur de la matrice"""
     def __init__(self, width, length):
         self.length = length
         self.width = width
@@ -11,5 +11,5 @@ class Espace(object):
        son monde elle n'écrase pas les anciens emplacements, je l'ai utilisé pour vérifier mon code. Tous les
        appels à cette fonction  peuvent être supprimer et le programme fonctionnera sans aucun problème,
        x indique la position du robot actuelle sur les lignes, y indique la position du robot actuelle sur les
-       colonnes, robot notre objet robot qu'on va créer à l'aide de la Classe MrRobot"""
+       colonnes, notre objet robot qu'on va créer à l'aide de la Classe MrRobot"""
         self.world[x][y] = robot.getName() + "=>" + robot.getCurrentDirection()  # placer indique l'emplacment du robot

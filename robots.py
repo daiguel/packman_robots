@@ -1,7 +1,7 @@
 class MrRobot(object):
-    """cette classe permet de crée des robots dont le nôtre (B-VZXR) qui va vivre dans notre monde [espace],elle permet de crée plusieurs
-   robots si besoin elle prend en paramètre, name le nom du robot for fun :), world l'espace dans le robot va ce
-   déplacer currentDirection spécifie ou le robot regarde actuellement par default  à up, x indique la position du
+    """cette classe permet de créer des robots dont le nôtre (B-VZXR), qui va vivre dans notre monde [espace], elle permet de créer plusieurs
+   robots si besoin, elle prend en paramètre, name le nom du robot for fun :), world l'espace dans le robot va se
+   déplacer, currentDirection spécifie ou le robot regarde actuellement par default à up, x indique la position du
    robot actuelle sur les lignes par par default  à 0, y indique la position du robot actuelle sur les colonnes
    par default  à 0,"""
 
@@ -38,9 +38,9 @@ class MrRobot(object):
     def placeInTheStartBox(self, ):
         """Cette fonction va placer le robot -B-VZXR- pour la première fois dans son monde  (espace); cette fonction
         et les appels à cette fonctions ne sont pas nécessaires pour le bon fonctionnement du code"""
-        self.checkX()#au cas où les paramètres(x, y) ont été initialiser a une valeur autre que zéro on vérifie qu'ils ne dépassent pas les bornes
+        self.checkX()#au cas où les paramètres(x, y) ont été initialisés a une valeur autre que zéro, on vérifie qu'ils ne dépassent pas les bornes
         self.checkX()
-        self.world.updateWorld(self.x, self.y, self)# mettre é jours le world (pas nécessaire)
+        self.world.updateWorld(self.x, self.y, self)# mettre à jour le world (pas nécessaire)
 
     def moveRight(self, nbrBoxesRobotMustMove):
         """Cette fonction permet de faire bouger notre robot à droite selon le nombre nbrBoxesRobotMustMove qui signifie
@@ -75,23 +75,23 @@ class MrRobot(object):
         self.world.updateWorld(self.x, self.y, self)# mettre à jours le world (pas nécessaire)
 
     def move(self, instruction):
-        """Cette fonction va déterminer dans quelle direction le robot va bouger elle dépend de deux principaux
+        """Cette fonction va déterminer dans quelle direction le robot va bouger, elle dépend de deux principaux
         paramètres qui sont la position du robot actuelle et l’instruction qui va le faire bouger vers la prochaine
-        case, l'instruction contient sens de rotation et le nombre de cases que le robot dois bouger"""
-        senseOfRotation, nbrBoxesRobotMustMove = instruction.split(", ") #récupérer le sens de rotation et le nbr de cases que le robot dois bouger
+        case, l'instruction contient le sens de rotation et le nombre de cases que le robot doit bouger"""
+        senseOfRotation, nbrBoxesRobotMustMove = instruction.split(", ") #récupérer le sens de rotation et le nbr de cases que le robot doit bouger
         nbrBoxesRobotMustMove = int(nbrBoxesRobotMustMove)
-        if senseOfRotation == "right": #si le sens de rotation et right
+        if senseOfRotation == "right": #si le sens de rotation est right
             if self.directionActuel == "up": #et que le robot regarde en haut donc
-                self.moveRight(nbrBoxesRobotMustMove) #il dois bouger vers la droite ............
+                self.moveRight(nbrBoxesRobotMustMove) #il doit bouger vers la droite ............
             elif self.directionActuel == "right":
                 self.moveDown(nbrBoxesRobotMustMove)
             elif self.directionActuel == "down":
                 self.moveLeft(nbrBoxesRobotMustMove)
             elif self.directionActuel == "left":
                 self.moveUp(nbrBoxesRobotMustMove)
-        elif senseOfRotation == "left":#si le sens de rotation et left
+        elif senseOfRotation == "left":#si le sens de rotation est left
             if self.directionActuel == "up":#et que le robot regarde en haut donc
-                self.moveLeft(nbrBoxesRobotMustMove)#il dois bouger vers la gauche ............
+                self.moveLeft(nbrBoxesRobotMustMove)#il doit bouger vers la gauche ............
             elif self.directionActuel == "right":
                 self.moveUp(nbrBoxesRobotMustMove)
             elif self.directionActuel == "down":
@@ -100,6 +100,6 @@ class MrRobot(object):
                 self.moveDown(nbrBoxesRobotMustMove)
 
     def getCurrentPosition(self):
-        """Permet de retourner un tuple qui contient numéro de la colonne et le numéro de la ligne (numColonne, numLigne)
-        actuelle du robot, cette fonction est utilisé pour avoir la position final du robot dans le monde"""
+        """Permet de retourner un tuple qui contient le numéro de la colonne et le numéro de la ligne (numColonne, numLigne)
+        actuels du robot, cette fonction est utilisée pour avoir la position finale du robot dans le monde"""
         return (self.y, self.x)#(numColonne, numLigne)
